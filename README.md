@@ -27,6 +27,7 @@ Els noms dels quatre fitxers principals que ja existien es conserven. El número
 al quadern i a aquesta guia; els quatre quaderns nous porten també el número al nom del fitxer.
 Cada quadern inclou objectiu, prerequisits, instruccions, experiments, justificacions,
 activitats, pistes desplegables i navegació al següent.
+Tots els quaderns, inclosos els complements, tenen un enllaç directe a Google Colab a la primera cel·la.
 
 **Obrir directament a Colab:**
 [01 · Racionals](https://colab.research.google.com/github/mlacasa/1BATXILLERAT/blob/main/Q_conjunt_dens.ipynb) ·

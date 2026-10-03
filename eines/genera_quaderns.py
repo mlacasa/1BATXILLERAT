@@ -2,6 +2,7 @@
 from pathlib import Path
 import json
 import textwrap
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -107,8 +108,11 @@ def arquimedes_certificat(passos=8, bits=80):
 
 
 def notebook(filename, title, objective, prior, duration, origin, cells, previous=None, following=None):
+    colab_url = "https://colab.research.google.com/github/mlacasa/1BATXILLERAT/blob/main/" + quote(filename, safe="")
     intro = md(f"""
     # {title}
+
+    [Obre aquest quadern a Google Colab]({colab_url})
 
     **Matemàtiques · 1r de batxillerat**  
     **Autoria: Dr. Lacasa-Cazcarra · Any 2026**
