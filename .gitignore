@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+validacio/
+dades_format_llarg.csv
+data2.csv
+originals/*.zip

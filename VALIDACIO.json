@@ -1,0 +1,112 @@
+{
+  "python": "3.12.10",
+  "platform": "Windows",
+  "packages": {
+    "numpy": "2.5.2",
+    "matplotlib": "3.11.1",
+    "pandas": "3.0.6",
+    "ipywidgets": "8.1.9",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0"
+  },
+  "method": "Nucli nou per quadern, validació nbformat, execució seqüencial i callbacks explícits; sense navegador Colab.",
+  "notebooks": [
+    {
+      "file": "04_Talladures_Dedekind.ipynb",
+      "status": "OK",
+      "cells": 8,
+      "figures_in_cells": 2,
+      "seconds": 2.83,
+      "sha256": "50b683b809cd23462b37e8d3947290f627286c8ecfc760dbce9a8879b5cd9450"
+    },
+    {
+      "file": "05_Successions_Cauchy.ipynb",
+      "status": "OK",
+      "cells": 10,
+      "figures_in_cells": 3,
+      "seconds": 2.97,
+      "sha256": "87c3b7d48e2f800681db12e5cc8fa8ecfff033a49e948ef3725d7a956f25d778"
+    },
+    {
+      "file": "06_Completesa_R.ipynb",
+      "status": "OK",
+      "cells": 10,
+      "figures_in_cells": 2,
+      "seconds": 2.23,
+      "sha256": "d7f0620ea702ed547728a32d19a533514ff92eef5439e5362243c11194004938"
+    },
+    {
+      "file": "07_Limits_Continuitat.ipynb",
+      "status": "OK",
+      "cells": 10,
+      "figures_in_cells": 3,
+      "seconds": 2.08,
+      "sha256": "fb413189f495ee7158e54e4ddb2dd2519f95a043c984115b0c66cf0fb5e96b33"
+    },
+    {
+      "file": "AnálisisUnivariante(I).ipynb",
+      "status": "OK",
+      "cells": 10,
+      "figures_in_cells": 4,
+      "seconds": 2.41,
+      "sha256": "076f8cf2540d9cb689a9929cc46c35078b8367ca1fe410fe47bf609f47573931"
+    },
+    {
+      "file": "ComplexNumbers.ipynb",
+      "status": "OK",
+      "cells": 11,
+      "figures_in_cells": 2,
+      "seconds": 1.92,
+      "sha256": "79e67d539f2a4fe25f1105a633db697441c5214c258fd8d415d2c6b8087d733b"
+    },
+    {
+      "file": "Càlcul_Nombre_pi.ipynb",
+      "status": "OK",
+      "cells": 7,
+      "figures_in_cells": 2,
+      "seconds": 2.3,
+      "sha256": "13b78a1872ff5243ccf387e3035e1640234bb5ecdb7061876807a8f6659aa4d0"
+    },
+    {
+      "file": "Derivades_BAT.ipynb",
+      "status": "OK",
+      "cells": 10,
+      "figures_in_cells": 3,
+      "seconds": 2.11,
+      "sha256": "a0f92afc3606c8c99673ae23668243ae59d49590d10b13d55e8b682a91cbcc38"
+    },
+    {
+      "file": "LaRecta.ipynb",
+      "status": "OK",
+      "cells": 7,
+      "figures_in_cells": 2,
+      "seconds": 1.88,
+      "sha256": "83ea7fb0bb39b9d29d595846798e62ace7591314824e0032285449b474315b42"
+    },
+    {
+      "file": "NumeroPi.ipynb",
+      "status": "OK",
+      "cells": 12,
+      "figures_in_cells": 1,
+      "seconds": 2.11,
+      "sha256": "96c5a490beeafb514ca770dfbe87ce2b94755eb978ca7cee60420e29f463a438"
+    },
+    {
+      "file": "PràcticaBasedeDades.ipynb",
+      "status": "OK",
+      "cells": 13,
+      "figures_in_cells": 1,
+      "seconds": 2.72,
+      "sha256": "c0dab372b25e9523eb516135df548aa8419654906b7e22ac49d3cd39d86ad9ec"
+    },
+    {
+      "file": "Q_conjunt_dens.ipynb",
+      "status": "OK",
+      "cells": 11,
+      "figures_in_cells": 2,
+      "seconds": 1.94,
+      "sha256": "20154122c680513af5ed5444ac0fa78c74fdc95de00bb6c675489b0648b22690"
+    }
+  ]
+}
