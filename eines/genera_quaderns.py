@@ -3,6 +3,8 @@ from pathlib import Path
 import json
 import textwrap
 from urllib.parse import quote
+from contingut_calcul_pi import crea_quadern as crea_quadern_pi
+from laboratoris_animats import enriqueix
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -29,11 +31,13 @@ plt.rcParams.update({"figure.figsize": (10, 4), "axes.grid": True,
 
 def explora(funcio, **rangs):
     """Controls opcionals: la mateixa funció també es pot cridar directament."""
+    # Conservem un exemple estàtic per als lectors sense controls interactius.
+    funcio()
     try:
         import ipywidgets as widgets
     except ImportError:
         print("Sense controls: executem els paràmetres per defecte. Pots canviar-los a la crida.")
-        return funcio()
+        return None
     panell = widgets.interactive(funcio, **rangs)
     display(panell)
     return panell
@@ -133,6 +137,7 @@ def notebook(filename, title, objective, prior, duration, origin, cells, previou
         ([f"[Anterior]({previous})"] if previous else []) + ["[Índex i guia](README.md)"] +
         ([f"[Següent]({following})"] if following else [])))
     all_cells = [intro, code(SETUP)] + cells + [tail]
+    all_cells = enriqueix(filename, all_cells, md, code)
     for i, cell in enumerate(all_cells):
         cell["id"] = f"c{i:03d}"
     data = {"cells": all_cells, "metadata": {
@@ -232,74 +237,7 @@ def build():
         </details>
         ''')], following="Càlcul_Nombre_pi.ipynb")
 
-    notebook("Càlcul_Nombre_pi.ipynb", "02 · Exhaurir el cercle: aproximacions a π",
-        "Interpretar les aproximacions de π com dues cotes geomètriques que s'apropen.",
-        "perímetres, Pitàgores i quadern 01", "1 sessió",
-        "Reelaboració de Càlcul_Nombre_pi.ipynb; la visualització ja no depèn de GeoGebra.", [
-        md(r'''
-        ## 1. Una longitud corba entre dues longituds poligonals
-        Treballem amb una circumferència de radi 1. Anomenem π la meitat de la seva longitud.
-        Un polígon **inscrit** té els vèrtexs sobre la circumferència; un polígon **circumscrit**
-        té els costats tangents. La comparació geomètrica dels perímetres dona
-        $p_n<2\pi<P_n$. Per tant, els semiperímetres satisfan $L_n<\pi<U_n$.
-
-        Acceptem aquí aquesta comparació geomètrica; no pretenem construir tota la teoria
-        de la longitud de corbes. Prediu com canviaran les dues cotes en duplicar els costats.
-
-        Per a l'hexàgon: el costat inscrit és 1, i Pitàgores dona el semiperímetre circumscrit
-        $2\sqrt3$. Així, $3<\pi<2\sqrt3$. No cal conèixer cap decimal de π.
-        ''') , code(ARCHIMEDES),
-        code(r'''
-        def poligons(iteracions=2):
-            n, inferior, superior = arquimedes(iteracions)[-1]
-            fig, (ax, bx) = plt.subplots(1, 2, figsize=(12, 4))
-            # np.pi només orienta els punts del DIBUIX. No intervé en les cotes calculades.
-            angles = np.linspace(0, 2*np.pi, n+1)
-            t = np.linspace(0, 2*np.pi, 500)
-            radi_exterior = 1 / np.cos(np.pi/n)
-            ax.plot(np.cos(t), np.sin(t), color="0.2", label="Circumferència")
-            ax.plot(np.cos(angles), np.sin(angles), color="#2563eb", label="Inscrit")
-            ax.plot(radi_exterior*np.cos(angles+np.pi/n),
-                    radi_exterior*np.sin(angles+np.pi/n), color="#d97706", label="Circumscrit")
-            ax.set_aspect("equal"); ax.set_title(f"{n} costats"); ax.legend(fontsize=9)
-            files = arquimedes(iteracions)
-            for k, (_, a, b) in enumerate(files):
-                bx.plot([float(a), float(b)], [k, k], "o-", color="#7c3aed")
-            bx.set(xlabel="Semiperímetre", ylabel="Duplicacions", title="Cotes sobre la recta")
-            plt.tight_layout(); plt.show()
-            print(f"Cota inferior ≈ {inferior:.12f}; cota superior ≈ {superior:.12f}")
-            print(f"Amplada aproximada: {superior-inferior:.4E}")
-        panell = explora(poligons, iteracions=(0, 6, 1))
-        ''') ,
-        md(r'''
-        ## 2. Què vol dir exhaurir?
-        No acabem fent un polígon amb «infinits costats». Construïm una successió de
-        polígons finits que deixa una diferència entre cotes tan petita com es vulgui.
-        **En cap pas finit el polígon es converteix en la circumferència.**
-
-        Les cotes anteriors s'han calculat amb una recurrència que estudiarem al quadern 03.
-        Les funcions trigonomètriques només s'utilitzen per dibuixar. No serien una manera
-        independent de descobrir π si introduíssim `np.pi` dins del càlcul del perímetre.
-
-        ## 3. Del dibuix a una pregunta sobre ℝ
-        La pantalla pot fer indistingibles dues corbes diferents. Per decidir si l'aproximació
-        és bona, necessitem nombres: l'amplada $U_n-L_n$.
-        Què garanteix que tots aquests intervals cada vegada més petits determinen un punt?
-        Aquesta pregunta ens conduirà a la **completesa**.
-
-        ## Activitats
-        1. Explica la diferència entre «inscrit» i «circumscrit» amb un dibuix propi.
-        2. Compara 6, 12, 24 i 96 costats. Es mouen les dues cotes en la mateixa direcció?
-        3. Si $a<\pi<b$, justifica que usar $(a+b)/2$ dona un error menor que $(b-a)/2$.
-        4. **Ampliació:** què passa si el radi és 3? Quina divisió cal fer als perímetres?
-
-        <details><summary>Comprovació</summary>
-
-        La cota inferior augmenta i la superior disminueix. Per a radi $r$, dividim els
-        perímetres per $2r$. La distància del punt mig a qualsevol punt de l'interval
-        és com a màxim la meitat de l'amplada.
-        </details>
-        ''')], previous="Q_conjunt_dens.ipynb", following="NumeroPi.ipynb")
+    crea_quadern_pi(notebook, md, code, ARCHIMEDES)
 
     notebook("NumeroPi.ipynb", "03 · L'algorisme d'Arquimedes",
         "Calcular π mitjançant cotes, justificar la convergència i controlar l'error.",

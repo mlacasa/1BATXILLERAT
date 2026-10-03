@@ -15,118 +15,146 @@
     {
       "file": "04_Talladures_Dedekind.ipynb",
       "status": "OK",
-      "cells": 8,
-      "figures_in_cells": 2,
-      "seconds": 2.83,
-      "sha256": "5c8a8ce5d0a219c1847a60e8a3184d788888d5c263ac2fed2fc8352ceb99b250",
-      "executed_sha256": "50b683b809cd23462b37e8d3947290f627286c8ecfc760dbce9a8879b5cd9450"
+      "cells": 28,
+      "animations_html": 1,
+      "outputs_saved": true,
+      "formative_questions": 3,
+      "comparison_and_feedback_callbacks": "OK",
+      "figures_in_cells": 7,
+      "seconds": 5.89,
+      "sha256": "2410a3b0b29a0e094ef45add8cbb7a141e00174f7aa3c17a9f145bc8d24b6c6e"
     },
     {
       "file": "05_Successions_Cauchy.ipynb",
       "status": "OK",
-      "cells": 10,
-      "figures_in_cells": 3,
-      "seconds": 2.97,
-      "sha256": "b074660f53803bff4a200213649a309279561b2b47c4c20cbcb9f9abe52a5180",
-      "executed_sha256": "87c3b7d48e2f800681db12e5cc8fa8ecfff033a49e948ef3725d7a956f25d778"
+      "cells": 30,
+      "animations_html": 1,
+      "outputs_saved": true,
+      "formative_questions": 3,
+      "comparison_and_feedback_callbacks": "OK",
+      "figures_in_cells": 8,
+      "seconds": 8.67,
+      "sha256": "f86628dedb47947327979b6976cbbd75fd6731362a7486c871a86ceeb8974f63"
     },
     {
       "file": "06_Completesa_R.ipynb",
       "status": "OK",
-      "cells": 10,
-      "figures_in_cells": 2,
-      "seconds": 2.23,
-      "sha256": "ecff92820fc8070662b89ab49d0eceb14c7854fec6e9c6bf33cd6b27a5b920cb",
-      "executed_sha256": "d7f0620ea702ed547728a32d19a533514ff92eef5439e5362243c11194004938"
+      "cells": 30,
+      "animations_html": 1,
+      "outputs_saved": true,
+      "formative_questions": 3,
+      "comparison_and_feedback_callbacks": "OK",
+      "figures_in_cells": 8,
+      "seconds": 10.11,
+      "sha256": "da761ff5eff72f1b69ca69093955c0546bd069a8fdb32dba23396acb2c2a8ad7"
     },
     {
       "file": "07_Limits_Continuitat.ipynb",
       "status": "OK",
-      "cells": 10,
-      "figures_in_cells": 3,
-      "seconds": 2.08,
-      "sha256": "0edd40c77826a64e31f101d0553aa68e6e3eaa144f0016ac9055c65a1878b8da",
-      "executed_sha256": "fb413189f495ee7158e54e4ddb2dd2519f95a043c984115b0c66cf0fb5e96b33"
+      "cells": 30,
+      "animations_html": 1,
+      "outputs_saved": true,
+      "formative_questions": 3,
+      "comparison_and_feedback_callbacks": "OK",
+      "figures_in_cells": 8,
+      "seconds": 10.11,
+      "sha256": "5fd85d923dff85f12cf6f1c6d105ce7a22922d64153c15383fd3baa925db3601"
     },
     {
       "file": "AnálisisUnivariante(I).ipynb",
       "status": "OK",
-      "cells": 10,
-      "figures_in_cells": 4,
-      "seconds": 2.41,
-      "sha256": "554e2ba76f1ef25b17a8ce83752def749388569f2a26aed7e58213e106945d72",
-      "executed_sha256": "076f8cf2540d9cb689a9929cc46c35078b8367ca1fe410fe47bf609f47573931"
+      "cells": 30,
+      "animations_html": 1,
+      "outputs_saved": true,
+      "formative_questions": 3,
+      "comparison_and_feedback_callbacks": "OK",
+      "figures_in_cells": 10,
+      "seconds": 8.78,
+      "sha256": "80457f56918396bcb550d9d75d4b7d716581a4469a09dabc755366d4f4da6d18"
     },
     {
       "file": "ComplexNumbers.ipynb",
       "status": "OK",
-      "cells": 11,
-      "figures_in_cells": 2,
-      "seconds": 1.92,
-      "sha256": "adc0ec3fd2e26a3f487d431ed1268dfffa12f34fe994380b3fd1e303344e5649",
-      "executed_sha256": "79e67d539f2a4fe25f1105a633db697441c5214c258fd8d415d2c6b8087d733b"
+      "cells": 31,
+      "animations_html": 1,
+      "outputs_saved": true,
+      "formative_questions": 3,
+      "comparison_and_feedback_callbacks": "OK",
+      "figures_in_cells": 8,
+      "seconds": 9.39,
+      "sha256": "53df6180e9a87f607aff886bf73dd75eda733e993b8b59755da18139500f581a"
     },
     {
       "file": "Càlcul_Nombre_pi.ipynb",
       "status": "OK",
-      "cells": 7,
-      "figures_in_cells": 2,
-      "seconds": 2.3,
-      "sha256": "72936091d3940c2173ed5dc437d3d1c3c298cd4e2b3723b54de032f9f531f28a",
-      "executed_sha256": "13b78a1872ff5243ccf387e3035e1640234bb5ecdb7061876807a8f6659aa4d0"
+      "cells": 41,
+      "animations_html": 1,
+      "outputs_saved": true,
+      "formative_questions": 3,
+      "comparison_and_feedback_callbacks": "OK",
+      "figures_in_cells": 14,
+      "seconds": 10.08,
+      "sha256": "81bc7a41405496558417affa3c3439645afb17db2ff3f60d63fe444b8eea6602"
     },
     {
       "file": "Derivades_BAT.ipynb",
       "status": "OK",
-      "cells": 10,
-      "figures_in_cells": 3,
-      "seconds": 2.11,
-      "sha256": "2921406d6a3073fb023ee9029bca89227ad492a87121d9006ba7abfddfcdeaee",
-      "executed_sha256": "a0f92afc3606c8c99673ae23668243ae59d49590d10b13d55e8b682a91cbcc38"
+      "cells": 30,
+      "animations_html": 1,
+      "outputs_saved": true,
+      "formative_questions": 3,
+      "comparison_and_feedback_callbacks": "OK",
+      "figures_in_cells": 9,
+      "seconds": 10.5,
+      "sha256": "faaec54f36fdabe0dafbf6ecbddc52ebe0b3ca22786866372adce2158cd3bc73"
     },
     {
       "file": "LaRecta.ipynb",
       "status": "OK",
-      "cells": 7,
-      "figures_in_cells": 2,
-      "seconds": 1.88,
-      "sha256": "89644608aaeafe4b98ff4aa60eb880cc066ed78e949986285bbbde74eda79f33",
-      "executed_sha256": "83ea7fb0bb39b9d29d595846798e62ace7591314824e0032285449b474315b42"
+      "cells": 27,
+      "animations_html": 1,
+      "outputs_saved": true,
+      "formative_questions": 3,
+      "comparison_and_feedback_callbacks": "OK",
+      "figures_in_cells": 8,
+      "seconds": 8.58,
+      "sha256": "25d6c853c6341aa24b5565285937e9ce2bdcc4a351982d428ad6ac0cee67b4b8"
     },
     {
       "file": "NumeroPi.ipynb",
       "status": "OK",
-      "cells": 12,
-      "figures_in_cells": 1,
-      "seconds": 2.11,
-      "sha256": "33975d08c0eecd52e6e902463b36b798a957b8a83cd8da73986ceb0ca93aee8d",
-      "executed_sha256": "96c5a490beeafb514ca770dfbe87ce2b94755eb978ca7cee60420e29f463a438"
+      "cells": 32,
+      "animations_html": 1,
+      "outputs_saved": true,
+      "formative_questions": 3,
+      "comparison_and_feedback_callbacks": "OK",
+      "figures_in_cells": 6,
+      "seconds": 8.94,
+      "sha256": "d085880c35909a26f4dda694997bcd719e31d8e9ff442b38609c9e1977eca3d0"
     },
     {
       "file": "PràcticaBasedeDades.ipynb",
       "status": "OK",
-      "cells": 13,
-      "figures_in_cells": 1,
-      "seconds": 2.72,
-      "sha256": "37b64a3679822eca3d94cfa1c6ead6955aa39f50fe109d0bfc7c7a2fdc4b2aa2",
-      "executed_sha256": "c0dab372b25e9523eb516135df548aa8419654906b7e22ac49d3cd39d86ad9ec"
+      "cells": 33,
+      "animations_html": 1,
+      "outputs_saved": true,
+      "formative_questions": 3,
+      "comparison_and_feedback_callbacks": "OK",
+      "figures_in_cells": 7,
+      "seconds": 9.19,
+      "sha256": "99d33bec31256e5de18715333d248885ae5e2291d0f5936a21bbd54ee988be5b"
     },
     {
       "file": "Q_conjunt_dens.ipynb",
       "status": "OK",
-      "cells": 11,
-      "figures_in_cells": 2,
-      "seconds": 1.94,
-      "sha256": "9c6121f27f96ea215bb543ca05d5f7cd89d420e1a9a71b1b473c1682296c6754",
-      "executed_sha256": "20154122c680513af5ed5444ac0fa78c74fdc95de00bb6c675489b0648b22690"
+      "cells": 31,
+      "animations_html": 1,
+      "outputs_saved": true,
+      "formative_questions": 3,
+      "comparison_and_feedback_callbacks": "OK",
+      "figures_in_cells": 8,
+      "seconds": 6.08,
+      "sha256": "58489e79f4d8f169e047535e39a3517c49f664004f21916425bb1f06cf18f00d"
     }
-  ],
-  "post_execution_checks": {
-    "baseline_commit": "28120afd00ba7dc8bb9595ba7d47e7b8c89b195f",
-    "change": "Direct Google Colab link in the first Markdown cell of every notebook.",
-    "code_cells_unchanged": true,
-    "nbformat_validated": 12,
-    "colab_links_validated": 12,
-    "execution_repeated": false
-  }
+  ]
 }

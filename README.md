@@ -10,12 +10,49 @@ que existeix el nombre al qual ens apropem?**
 L'experimentació amb Python acompanya les definicions, els contraexemples i les demostracions.
 Calcular π il·lustra la completesa; no demostra per si sol que ℝ sigui complet.
 
+## Laboratoris visuals per a 1r de batxillerat
+
+Els dotze quaderns incorporen una ruta guiada, un exemple treballat, una animació amb pausa
+i selecció de fotograma, reptes amb dades noves i un espai perquè l'alumne escrigui el seu
+raonament. Les comprovacions dels reptes estan plegades perquè es consultin després d'intentar-los.
+Els apartats més abstractes estan identificats com a **ampliació formal**.
+
+Cada quadern inclou també una comparació simultània de dos estats, un taller executable de Python
+i tres preguntes conceptuals amb retorn específic per a cada opció: **12 tallers i 36 preguntes**.
+L'alumne pot escollir els estats A i B i prémer **Compara els estats**, fer una predicció,
+modificar una dada i justificar què canvia. Les respostes no venen preseleccionades.
+La comprovació automàtica explica l'opció triada; no substitueix la valoració del raonament escrit.
+
+Els tallers inclouen cercar √3 amb fraccions, estudiar el guany de precisió de π en duplicar
+costats, provar una tolerància d'error, cercar un terme que superi un candidat a cota,
+canviar el valor d'una funció en un punt, comparar derivades laterals, estudiar dues tarifes,
+distingir suma i producte de complexos i interpretar dades sense barrejar unitats.
+
+| Quadern | Què es veu canviar | Què ha de poder explicar l'alumne |
+|---|---|---|
+| 01 · Racionals | Bisecció d'intervals i ampliació de cada decisió | Per què conservem una meitat i com controlem l'amplada |
+| 02 · Aproximar π | Polígon, angles, base i aproximació fins a 300 costats | Per què costats més curts poden donar un perímetre més gran |
+| 03 · Arquímedes | Interval de cotes i marge d'error del punt mig | Quan podem aturar-nos sense conèixer el valor exacte |
+| 04 · Dedekind | Classificació de fraccions i comparació exacta dels quadrats | Diferència entre una mostra finita i una regla per a tots els racionals |
+| 05 · Cauchy | Salts consecutius i salts entre n i 2n | Per què passos petits no garanteixen Cauchy |
+| 06 · Completesa | Màxim d'una mostra i candidat a cota que acaba superat | Diferència entre màxim, cota superior i suprem |
+| 07 · Límits | Aproximació per dos costats en un forat i un salt | Límit lateral, límit bilateral, valor al punt i continuïtat |
+| 08 · Derivades | Secants que s'acosten a una tangent i una cantonada | Quocient incremental, unitats i desacord de les pendents laterals |
+| La recta | Dos triangles de pendent amb m variable | Proporció, signe, ordenada i unitats |
+| Complexos | Gir del punt i de les seves components | Multiplicació com a gir i dilatació, en connexió amb l'àlgebra |
+| Estadística | Una dada extrema, histograma i diagrama de caixa | Sensibilitat de la mitjana i resistència de la mediana |
+| Dades | Una cel·la ampla que es transforma en una fila llarga | Conservació d'identificador, any, categoria, valor i unitats |
+
+La primera passada pot centrar-se en la intuïció, el càlcul i la interpretació de gràfics.
+Dedekind, Cauchy i les demostracions de completesa són aprofundiments guiats; no cal presentar
+tot el seu formalisme com a coneixement previ d'un alumne de 1r de batxillerat.
+
 ## Recorregut principal
 
 | Ordre | Quadern | Experiment i objectiu | Sessions orientatives |
 |---|---|---|---|
 | 01 | [Racionals: densitat i nombres que falten](Q_conjunt_dens.ipynb) | Punts mitjans, bisecció exacta de l'arrel de 2 i irracionalitat | 1–2 |
-| 02 | [Exhaurir el cercle](Càlcul_Nombre_pi.ipynb) | Polígons inscrits i circumscrits, perímetres i intervals | 1 |
+| 02 | [Exhaurir el cercle](Càlcul_Nombre_pi.ipynb) | Angle central i base del triangle pas a pas; aproximacions de π de 3 a 300 costats, gràfics i intervals | 1 |
 | 03 | [L'algorisme d'Arquimedes](NumeroPi.ipynb) | Duplicació de costats sense conèixer π; control i certificació de l'error | 2 |
 | 04 | [Talladures de Dedekind](04_Talladures_Dedekind.ipynb) | Classificació exacta de racionals; representació d'un nombre per un tall | 1–2 |
 | 05 | [Successions i criteri de Cauchy](05_Successions_Cauchy.ipynb) | Distàncies entre termes de cues; contraexemple harmònic | 2 |
@@ -45,6 +82,12 @@ Per a cada experiment: **predir → executar → descriure → conjecturar → j
 L'alumne ha d'escriure una resposta abans de moure els controls i revisar-la després.
 No és necessari comprendre tot el codi per seguir el recorregut matemàtic.
 
+Una pauta per al laboratori: 2 minuts de predicció, 8–10 minuts de reproducció amb pauses,
+5 minuts d'explicació i 10 minuts de transferència a un cas nou. Es demana evidència en tres
+registres: **dibuix, nombres i explicació**. Una captura sense justificació no completa la tasca.
+El professor pot demanar una primera resposta abans d'executar el codi i una correcció raonada després.
+Les animacions són finites: se n'expliciten les escales, les unitats i els límits de la conclusió.
+
 Una ruta inicial curta pot emprar 01, 02, la part bàsica de 03, les definicions de 04 i 05,
 i la síntesi de 06. La certificació amb aritmètica racional i la demostració general de
 convergència de Cauchy són ampliacions. Els quaderns 07 i 08 fan el pont al càlcul diferencial.
@@ -59,7 +102,9 @@ Valoreu separadament el càlcul, la interpretació dels quantificadors i la just
 - La densitat de ℚ no implica que ℚ sigui complet. La bisecció de √2 ho fa visible, i la
   demostració d'irracionalitat explica per què falta un límit racional.
 - L'algorisme de π parteix de semiperímetres d'hexàgons i usa mitjanes harmòniques i geomètriques.
-  `np.pi` només s'utilitza per orientar el dibuix dels polígons; no intervé en el càlcul de les cotes.
+  Al quadern 02, els costats per a cada enter de 3 a 300 també es calculen amb biseccions geomètriques
+  d'angles i Pitàgores. El valor conegut de π només s'utilitza per dibuixar i comparar errors;
+  no intervé en el càlcul dels costats, dels perímetres ni de les cotes.
 - Acceptem la comparació geomètrica entre la circumferència i els perímetres poligonals.
   No desenvolupem una construcció completa de la longitud de corbes.
 - La part bàsica usa `Decimal`, amb arrodoniment. L'ampliació certificada usa `Fraction`,
@@ -105,8 +150,17 @@ Si els controls interactius no es mostren, executeu directament la funció amb a
 `secant(tipus="absolut", a=0, exponent=3, costat=-1)`.
 Quan `ipywidgets` no està instal·lat, s'executa automàticament l'exemple per defecte.
 
-Els quaderns distribuïts no porten sortides pesades ni animacions de vídeo incrustades.
-Les figures i els controls es generen en executar-los. No hi ha logotips.
+L'edició executada conserva figures estàtiques i animacions HTML amb controls de reproducció,
+pausa i selecció de fotograma. No cal FFmpeg ni descarregar vídeos. Les animacions també es
+regeneren en executar totes les cel·les. A GitHub o en altres visors estàtics pot no executar-se
+l'HTML: obriu el quadern a Jupyter/Colab o feu servir els fotogrames estàtics.
+Després d'executar les definicions, `fotograma_laboratori(fotogrames_laboratori[0])` mostra
+l'estat inicial i `fotograma_laboratori(fotogrames_laboratori[-1])` el final.
+Els controls `ipywidgets` són complementaris; els laboratoris tenen exemples visibles sense widgets.
+També es pot executar `compara_estats(*parella_comparacio)` i canviar els arguments,
+o obtenir retorn amb `mostra_feedback(1, 'B')`. Cada taller mostra les preguntes i opcions
+en text perquè continuïn llegibles sense controls. Les figures comparatives queden desades.
+No hi ha logotips.
 
 ## Referència de Burgos
 
@@ -136,16 +190,21 @@ Al repositori es poden recuperar des del [commit original](https://github.com/ml
 `originals/SHA256.json` permet comprovar-ne la integritat. No s'ha afegit una llicència
 que alteri els drets dels materials originals.
 
-El fitxer `eines/genera_quaderns.py` conté la font editable de les cel·les. Després de
-modificar-la, regenereu i valideu:
+Les fonts editables són `eines/genera_quaderns.py`, `eines/contingut_calcul_pi.py`,
+`eines/laboratoris_animats.py` i `eines/tallers_aprenentatge.py`. El generador incrusta el codi a cada quadern: l'alumne
+només necessita el `.ipynb`, no aquests mòduls. Després de modificar-les, regenereu i valideu:
 
 ```powershell
 python eines/genera_quaderns.py
 python eines/comprova_matematiques.py
-python eines/valida_quaderns.py --figures validacio/figures
+python eines/valida_quaderns.py --save-outputs --figures validacio/figures
 ```
 
 El generador substitueix els dotze `.ipynb` d'aquesta edició. Si heu editat directament
-un quadern, traslladeu primer els canvis al generador. La validació executa cada quadern
-amb un nucli nou i comprova també crides explícites als experiments; no desa sortides als originals.
-El resum i les versions dels paquets queden a `VALIDACIO.json`.
+un quadern, traslladeu primer els canvis a les fonts. La validació executa cada quadern
+amb un nucli nou, comprova les animacions HTML i crides explícites als experiments,
+incloent els estats inicial i final dels laboratoris. Amb `--save-outputs` desa les sortides
+docents als quaderns; sense aquesta opció només valida. No s'hi desen les cel·les addicionals de prova.
+Es comproven també el comparador i els botons de retorn amb preguntes sense respondre,
+respostes encertades i respostes errònies; abans de desar es restableixen tots els selectors.
+El resum, les versions dels paquets i els hash dels fitxers queden a `VALIDACIO.json`.

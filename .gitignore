@@ -2,6 +2,7 @@
 __pycache__/
 .ipynb_checkpoints/
 validacio/
+VALIDACIO_PARCIAL.json
 dades_format_llarg.csv
 data2.csv
 originals/*.zip

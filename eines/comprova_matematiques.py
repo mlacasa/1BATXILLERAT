@@ -7,6 +7,7 @@ from decimal import Decimal, localcontext
 from fractions import Fraction
 import re
 import unittest
+from unittest.mock import patch
 import numpy as np
 import pandas as pd
 
@@ -26,7 +27,145 @@ def functions(filename):
     return namespace
 
 
+def laboratory(filename):
+    namespace = functions(filename)
+    nb = json.loads((ROOT / filename).read_text(encoding="utf-8"))
+    for cell in nb["cells"]:
+        source = "".join(cell["source"])
+        if cell["cell_type"] == "code" and source.startswith("titol_laboratori ="):
+            exec(compile(source, filename, "exec"), namespace)
+    return namespace
+
+
 class Mathematics(unittest.TestCase):
+    def test_animated_bisection_preserves_exact_bracket(self):
+        ns = laboratory("Q_conjunt_dens.ipynb")
+        for step in ns["fotogrames_laboratori"]:
+            a, b, m, (c, d) = ns["estat_biseccio"](step)
+            self.assertLess(a*a, 2)
+            self.assertLess(2, b*b)
+            self.assertLess(c*c, 2)
+            self.assertLess(2, d*d)
+            self.assertEqual(d-c, (b-a)/2)
+            self.assertEqual(m, (a+b)/2)
+
+    def test_pi_educational_error_thresholds(self):
+        f = functions("Càlcul_Nombre_pi.ipynb")["dades_poligon"]
+        self.assertEqual(next(n for n in range(3, 301) if math.pi-f(n)["pi_aprox"] < .001), 72)
+        arch = functions("NumeroPi.ipynb")["arquimedes"]
+        self.assertEqual(next(n for n, a, b in arch(9) if (b-a)/2 < Decimal(".0001")), 384)
+
+    def test_dedekind_animation_uses_exact_square_comparison(self):
+        ns = laboratory("04_Talladures_Dedekind.ipynb")
+        for q in ns["candidats_tall"]:
+            self.assertNotEqual(q*q, 2)
+            self.assertEqual(q*q < 2, ns["pertany_inferior"](q, "arrel2"))
+
+    def test_cauchy_animation_counterexample_persists(self):
+        ns = laboratory("05_Successions_Cauchy.ipynb")
+        for n in ns["fotogrames_laboratori"]:
+            da, block_a, dh, block_h = ns["distancies_cauchy"](n)
+            self.assertLessEqual(block_h, 1)
+            self.assertGreaterEqual(block_h, .5)
+            self.assertAlmostEqual(da, 1/n-1/(n+1))
+            self.assertAlmostEqual(block_a, 1/n-1/(2*n))
+            self.assertAlmostEqual(dh, 1/(n+1))
+
+    def test_suprem_candidate_is_exceeded_at_21(self):
+        f = laboratory("06_Completesa_R.ipynb")["estat_suprem"]
+        self.assertFalse(f(20)[2])
+        self.assertTrue(f(21)[2])
+        for n in (1, 2, 100, 1001):
+            m, d, _ = f(n)
+            self.assertEqual(m+d, 1)
+            self.assertGreater(d, 0)
+
+    def test_limits_frames_keep_distinct_lateral_limits(self):
+        ns = laboratory("07_Limits_Continuitat.ipynb")
+        for step in ns["fotogrames_laboratori"]:
+            h, left, right, jump_left, jump_right = ns["estat_limits"](step)
+            self.assertGreater(h, 0)
+            self.assertLess(left, 2)
+            self.assertGreater(right, 2)
+            self.assertEqual((jump_left, jump_right), (-1, 1))
+
+    def test_derivative_slopes_approach_from_both_sides(self):
+        ns = laboratory("Derivades_BAT.ipynb")
+        for step in ns["fotogrames_laboratori"]:
+            h, right, left = ns["estat_derivada"](step)
+            self.assertAlmostEqual(right, 2+h, places=11)
+            self.assertAlmostEqual(left, 2-h, places=11)
+
+    def test_slope_triangles_preserve_ratio_and_intercept(self):
+        f = laboratory("LaRecta.ipynb")["dades_rampa"]
+        for m in (-2, -.5, 0, 2/3, 2):
+            for dx in (1, 2, 6):
+                dy, y = f(m, dx, b=3)
+                self.assertAlmostEqual(dy/dx, m)
+                self.assertAlmostEqual(y-dy, 3)
+
+    def test_complex_animation_rotation_and_dilation(self):
+        f = laboratory("ComplexNumbers.ipynb")["gira_complex"]
+        for angle in range(0, 361, 15):
+            w, z = f(2+1j, angle)
+            self.assertAlmostEqual(abs(w), 1)
+            self.assertAlmostEqual(abs(z), math.sqrt(5))
+        self.assertAlmostEqual(abs(f(2+1j, 90)[1]-(-1+2j)), 0)
+        self.assertAlmostEqual(abs(f(2+1j, 90, 2)[1]-(-2+4j)), 0)
+
+    def test_one_outlier_changes_mean_but_not_median(self):
+        ns = laboratory("AnálisisUnivariante(I).ipynb")
+        f = ns["resum_temps"]
+        initial = f(15)[1]
+        for value in (15, 30, 36, 60):
+            data, mean, median = f(value)
+            self.assertEqual(len(data), 21)
+            self.assertAlmostEqual(mean-initial, (value-15)/21)
+            self.assertEqual(median, 12)
+
+    def test_data_animation_preserves_each_source_cell(self):
+        ns = laboratory("PràcticaBasedeDades.ipynb")
+        self.assertEqual(len(ns["mini_llarg"]), 12)
+        seen = set()
+        for step in ns["fotogrames_laboratori"]:
+            pos, column, row = ns["origen_registre"](step)
+            self.assertEqual(ns["mini_ample"].iloc[pos][column], row["value"])
+            self.assertEqual(ns["mini_ample"].iloc[pos]["ID"], row["rank"])
+            seen.add((pos, column))
+        self.assertEqual(len(seen), 12)
+
+    def test_pi_all_polygons_to_300(self):
+        f = functions("Càlcul_Nombre_pi.ipynb")["dades_poligon"]
+        self.assertAlmostEqual(f(3)["base"], math.sqrt(3), places=13)
+        self.assertAlmostEqual(f(4)["base"], math.sqrt(2), places=13)
+        self.assertAlmostEqual(f(6)["pi_aprox"], 3.0, places=13)
+        self.assertAlmostEqual(f(12)["base"], math.sqrt(2-math.sqrt(3)), places=13)
+        previous = 0.0
+        for n in range(3, 301):
+            d = f(n)
+            self.assertAlmostEqual(d["pi_aprox"], n*math.sin(math.pi/n), delta=2e-11)
+            self.assertGreater(d["pi_aprox"], previous)
+            self.assertLess(d["pi_aprox"], math.pi)
+            self.assertAlmostEqual(f(n, radi=3)["pi_aprox"], d["pi_aprox"], places=13)
+            previous = d["pi_aprox"]
+        self.assertLess(math.pi-previous, 0.000058)
+
+    def test_pi_calculation_does_not_use_known_pi(self):
+        f = functions("Càlcul_Nombre_pi.ipynb")["dades_poligon"]
+        expected = f(300)["pi_aprox"]
+        with patch.object(math, "pi", 0.0), patch.object(np, "pi", 0.0), \
+             patch.object(math, "sin", side_effect=AssertionError("No sinus predefinit")):
+            self.assertEqual(f(300)["pi_aprox"], expected)
+
+    def test_pi_polygon_input_bounds(self):
+        f = functions("Càlcul_Nombre_pi.ipynb")["dades_poligon"]
+        for n in (2, 301, 6.5, True):
+            with self.assertRaises(ValueError):
+                f(n)
+        for radi in (0, -1, float("inf"), float("nan")):
+            with self.assertRaises(ValueError):
+                f(6, radi=radi)
+
     def test_midpoints_are_exact_and_independent(self):
         f = functions("Q_conjunt_dens.ipynb")["punts_mitjans"]
         a = f(passos=80)
